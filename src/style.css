@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+html, body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color-1: rgb(1, 27, 9);
+  --bg-color-2: rgb(1, 10, 27);
+
+  --color-1: 50, 120, 50;
+  --color-2: 50, 85, 120;
+  --color-3: 120, 50, 120;
+  --color-4: 120, 85, 50;
+
+  --main-color-1: 93, 226, 129;
+  --main-color-2: 196, 93, 226;
+  --main-color-3: 93, 123, 226;
+
+  --color-interactive: 93, 226, 129;
+  --circle-size: 60%;
+  --blending: hard-light;
+  --filter: blur(40px);
+}
+
+body {
+  background: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2)) no-repeat;
+  width: 100vw;
+  height: 100vh;
+  color: rgb(var(--main-color-1));
+}
+
+@keyframes moveInCircle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-50%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes moveHorizontal {
+  0% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+  50% {
+    transform: translateX(50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+@keyframes moveInCircleReverse {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(45deg, var(--bg-color-1), var(--bg-color-2)) no-repeat;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  svg {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 0;
+    height: 0;
+  }
+  .gradients-container {
+    filter: url(#goo) blur(40px) ;
+    width: 100%;
+    height: 100%;
+  }
+  .gradient-bg {
+    filter: url(#goo) blur(40px) ;
+  }
+  .g1 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-1), 0.8) 0, rgba(var(--color-2), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+    filter: var(--filter);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+
+    transform-origin: center center;
+    animation: moveVertical 30s ease infinite;
+
+    opacity: 1;
+  }
+  .g2 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-2), 0.8) 0, rgba(var(--color-3), 0) 50%) no-repeat;
+    border-radius: 100% 100% 100% 100%;
+    mix-blend-mode: var(--blending);
+    filter: var(--filter);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+
+    transform-origin: calc(50% - 400px);
+    animation: moveInCircle 20s reverse infinite;
+
+    opacity: 1;
+  }
+
+  .g3 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-3), 0.8) 0, rgba(var(--color-4), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+    filter: var(--filter);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2 + 200px);
+    left: calc(50% - var(--circle-size) / 2 - 500px);
+
+    transform-origin: calc(50% + 400px);
+    animation: moveInCircle 40s linear infinite;
+
+    opacity: 1;
+  }
+
+  .g4 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-4), 0.8) 0, rgba(var(--color-1), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+    filter: var(--filter);
+
+    width: var(--circle-size);
+    height: var(--circle-size);
+    top: calc(50% - var(--circle-size) / 2);
+    left: calc(50% - var(--circle-size) / 2);
+
+    transform-origin: calc(50% - 200px);
+    animation: moveHorizontal 40s ease infinite;
+
+    opacity: 0.7;
+  }
+
+  .g5 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-4), 0.8) 0, rgba(var(--color-2), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+    filter: var(--filter);
+
+    width: calc(var(--circle-size) * 2);
+    height: calc(var(--circle-size) * 2);
+    top: calc(50% - var(--circle-size));
+    left: calc(50% - var(--circle-size));
+
+    transform-origin: calc(50% - 800px) calc(50% + 200px);
+    animation: moveInCircle 20s ease infinite;
+
+    opacity: 1;
+  }
+  .g6 {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-4), 0.8) 0, rgba(var(--color-3), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+    filter: var(--filter);
+
+    width: calc(var(--circle-size) * 2);
+    height: calc(var(--circle-size) * 2);
+    top: calc(50% - var(--circle-size));
+    left: calc(50% - var(--circle-size) + 50%);
+
+    transform-origin: calc(50% - 600px) calc(50% + 1000px);
+    animation: moveInCircleReverse 20s ease reverse infinite;
+
+    opacity: 1;
+  }
+  .interactive {
+    position: absolute;
+    background: radial-gradient(circle at center, rgba(var(--color-interactive), 0.8) 0, rgba(var(--color-interactive), 0) 50%) no-repeat;
+    mix-blend-mode: var(--blending);
+
+    opacity: 0.7;
+  }
+}
