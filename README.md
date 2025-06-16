@@ -19,4 +19,5 @@ Technologies to be used:
 - Project Structure 🛠
 - Light Effects 🛠
 - Skill Graph 🛠
+- Other Pages 🛠
 - Other Features 🛠
