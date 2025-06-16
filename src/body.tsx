@@ -9,4 +9,6 @@ function Body_bg() {
   return null;
 }
 
+// useless component, will be deleted at any moment
+
 export default Body_bg;

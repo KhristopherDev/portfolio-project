@@ -22,7 +22,7 @@ html, body {
   --color-interactive: 93, 226, 129;
   --circle-size: 60%;
   --blending: hard-light;
-  --filter: blur(40px);
+  --filter: blur(20px);
 }
 
 body {
