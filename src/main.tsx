@@ -4,13 +4,13 @@ import "./style.css";
 import MyNav from "./myNav";
 import Body_bg from "./body";
 import Gradients from "./gradients";
-import EyeTracker from "./character";
+import Emoji from "./emoji";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Body_bg />
     <Gradients />
     <MyNav />
-    <EyeTracker />
+    <Emoji />
   </StrictMode>
 );
