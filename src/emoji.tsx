@@ -1,22 +1,32 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 function Emoji() {
   const EmojiSize = 10;
   const [emoji, setEmoji] = useState(`😀`);
+  const EmojiList = ["😫", "😡", "😑"];
+  const [isAnimating, setIsAnimating] = useState(false);
   useEffect(() => {
+    const ContactBTN = document.getElementById("Contact");
+    const EmojiReact = document.getElementById("EmojiReact");
+    let EmojiListPos = 0;
     document.addEventListener("mouseleave", () => {
       setEmoji("🥺");
     });
-    document.addEventListener("mouseenter", () => {
+    document.addEventListener("mouseover", () => {
       setEmoji("😀");
     });
-    document.addEventListener("mouseenter", (e) => {
-      e.target.id === "Contact" ? setEmoji("🤩") : setEmoji("😀");
+    ContactBTN?.addEventListener("mouseenter", () => {
+      setEmoji("🤩");
     });
-  });
+    EmojiReact?.addEventListener("click", () => {
+      setEmoji(EmojiList[Math.floor(Math.random() * EmojiList.length)]);
+      setIsAnimating(true);
+    });
+  }, []);
 
   return (
-    <div
+    <motion.div
       style={{
         position: "relative",
         width: `${EmojiSize}vw`,
@@ -26,9 +36,13 @@ function Emoji() {
         cursor: "pointer",
         userSelect: "none",
       }}
+      id="EmojiReact"
+      animate={isAnimating ? { scale: [1.2, 0.9, 1] } : {}}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
+      onAnimationComplete={() => setIsAnimating(false)}
     >
       {emoji}
-    </div>
+    </motion.div>
   );
 }
 

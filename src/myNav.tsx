@@ -34,7 +34,7 @@ function MyNav() {
               ))}
             </ul> */}
             <button
-              className="btn bg-[rgb(var(--main-color-2))] w-[6rem] h-[2rem] rounded-[2rem]"
+              className="btn bg-[rgb(var(--main-color-2))] w-[6rem] h-[2rem] rounded-[2rem] transition-discrete"
               id="Contact"
             >
               Contact
