@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function Emoji() {
-  const EmojiSize = 10;
+  const EmojiSize = 5.5;
+  const EmojiSizeType = "rem";
   const [emoji, setEmoji] = useState(`😀`);
   const EmojiList = ["😫", "😡", "😑"];
   const [isAnimating, setIsAnimating] = useState(false);
@@ -29,10 +30,10 @@ function Emoji() {
     <motion.div
       style={{
         position: "relative",
-        width: `${EmojiSize}vw`,
-        height: `${EmojiSize}vw`,
+        width: `${EmojiSize}${EmojiSizeType}`,
+        height: `${EmojiSize}${EmojiSizeType}`,
         textAlign: "center",
-        fontSize: `${EmojiSize * 0.7}vw`,
+        fontSize: `${EmojiSize * 0.7}${EmojiSizeType}`,
         cursor: "pointer",
         userSelect: "none",
       }}
