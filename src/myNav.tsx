@@ -1,4 +1,3 @@
-import "./myNav.css";
 import Emoji from "./emoji";
 
 function MyNav() {
@@ -34,10 +33,10 @@ function MyNav() {
               ))}
             </ul> */}
             <button
-              className="btn bg-[rgb(var(--main-color-2))] w-[6rem] h-[2rem] rounded-[2rem] transition-discrete"
+              className="btn bg-[rgb(var(--main-color-2))] w-[7rem] h-[2rem] rounded-[2rem] transition-discrete"
               id="Contact"
             >
-              Contact
+              Contact me!
             </button>
           </nav>
         </div>

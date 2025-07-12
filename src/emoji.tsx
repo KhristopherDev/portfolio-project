@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function Emoji() {
+  //Using JS-Legacy - Needs React States implamentaion
   const EmojiSize = 5.5;
   const EmojiSizeType = "rem";
   const [emoji, setEmoji] = useState(`😀`);
-  const EmojiList = ["😫", "😡", "😑"];
+  const EmojiList = ["😫", "😡", "😑", "🙄", "👹", "🤬", "🥶"];
   const [isAnimating, setIsAnimating] = useState(false);
   useEffect(() => {
     const ContactBTN = document.getElementById("Contact");
     const EmojiReact = document.getElementById("EmojiReact");
     let EmojiListPos = 0;
     document.addEventListener("mouseleave", () => {
-      setEmoji("🥺");
+      setEmoji("😔");
     });
     document.addEventListener("mouseover", () => {
       setEmoji("😀");
@@ -27,7 +28,7 @@ function Emoji() {
   }, []);
 
   return (
-    <motion.div
+    <motion.div //Object doesn't have function interaction - Refactor to cohesive code
       style={{
         position: "relative",
         width: `${EmojiSize}${EmojiSizeType}`,
